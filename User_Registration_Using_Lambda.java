@@ -5,6 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistrationSystem {
+
 	static Scanner sc = new Scanner(System.in);
 
 	public static void firstName() {
@@ -12,11 +13,11 @@ public class UserRegistrationSystem {
 		System.out.println("Enter The First Name");
 		String fName = sc.next();
 		String regex = "[A-Z]{1}[a-z]{2,}";
-		Pattern p1 = Pattern.compile(regex);
-		Matcher m1 = p1.matcher(fName);
-		System.out.println("String Result Is :" + m1.matches());
-		boolean check1 = (m1.matches());
-		if (check1 == true) {
+		Pattern p = Pattern.compile(regex);
+		Matcher m = p.matcher(fName);
+		System.out.println("String Result Is :" + m.matches());
+		boolean check = (m.matches());
+		if (check == true) {
 
 			System.out.println("First Name Is Valid");
 		} else {
@@ -24,9 +25,26 @@ public class UserRegistrationSystem {
 		}
 	}
 
+	public static void lastName() {
+
+		System.out.println("Enter The Last Name");
+		String lName = sc.next();
+		String regex = "[A-Z]{1}[a-z]{2,}";
+		Pattern p = Pattern.compile(regex);
+		Matcher m = p.matcher(lName);
+		System.out.println("String Result Is:" + m.matches());
+		boolean check = (m.matches());
+		if (check == true) {
+
+			System.out.println("Last Name Is Valid");
+		} else {
+			System.out.println("Last Name Is Invalid");
+		}
+	}
+
 	public static void main(String args[]) {
 
 		firstName();
-
+		lastName();
 	}
 }
