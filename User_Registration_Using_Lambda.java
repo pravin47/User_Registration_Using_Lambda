@@ -1,5 +1,6 @@
 package com.user.registration;
 
+import java.util.regex.*;
 import java.util.*;
 import java.util.regex.*;
 
@@ -75,12 +76,29 @@ public class UserRegistrationSystem {
 		}
 
 	}
-
+	public static void password() {
+	
+		System.out.println("Please Enter The Valid Password using Rules");
+		System.out.println("RULE 1: Minimum 8 Characters ");
+		String password = sc.next();
+		String regex = "[a-zA-Z0-9]{8}";
+		Pattern p = Pattern.compile(regex);
+		Matcher m = p.matcher(password);
+		System.out.println("String Result Is :" +m.matches());
+		boolean check = (m.matches());
+		if (check == true) {
+			System.out.println("Password Is Valid");
+		}else {
+			System.out.println("Password Is invalid");
+		}
+	}
+	
 	public static void main(String args[]) {
 
 		firstName();
 		lastName();
 		email();
 		phoneNumber();
+		password();
 	}
 }
