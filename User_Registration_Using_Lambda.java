@@ -1,8 +1,7 @@
 package com.user.registration;
 
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.regex.*;
 
 public class UserRegistrationSystem {
 
@@ -10,7 +9,7 @@ public class UserRegistrationSystem {
 
 	public static void firstName() {
 
-		System.out.println("Enter The First Name");
+		System.out.println("Enter The First Name Please Make Sure Name Should be Star From Capital Letter And Minimum 3 Character");
 		String fName = sc.next();
 		String regex = "[A-Z]{1}[a-z]{2,}";
 		Pattern p = Pattern.compile(regex);
@@ -27,7 +26,7 @@ public class UserRegistrationSystem {
 
 	public static void lastName() {
 
-		System.out.println("Enter The Last Name");
+		System.out.println("Enter The Last Name Please Make Sure Name Should be Star From Capital Letter And Minimum 3 Character");
 		String lName = sc.next();
 		String regex = "[A-Z]{1}[a-z]{2,}";
 		Pattern p = Pattern.compile(regex);
@@ -57,6 +56,24 @@ public class UserRegistrationSystem {
 		} else {
 			System.out.println("Email Is Invalid");
 		}
+
+	}
+
+	public static void phoneNumber() {
+
+		System.out.println("Enter The Valid Phone Number Please Make Sure Number Should Start From 91 Code");
+		String phoneNumber = sc.next();
+		String regex = "91?[0-9]{9}";
+		Pattern p = Pattern.compile(regex);
+		Matcher m = p.matcher(phoneNumber);
+		System.out.println("String Result Is :" + m.matches());
+		boolean check = (m.matches());
+		if (check == true) {
+			System.out.println("Number Is Valid");
+		} else {
+			System.out.println("Number IS Invalid");
+		}
+
 	}
 
 	public static void main(String args[]) {
@@ -64,5 +81,6 @@ public class UserRegistrationSystem {
 		firstName();
 		lastName();
 		email();
+		phoneNumber();
 	}
 }
