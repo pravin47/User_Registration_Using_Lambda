@@ -42,9 +42,27 @@ public class UserRegistrationSystem {
 		}
 	}
 
+	public static void email() {
+
+		System.out.println("Enter The Valid Email Id");
+		String email = sc.next();
+		String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
+		Pattern p = Pattern.compile(regex);
+		Matcher m = p.matcher(email);
+		System.out.println("String Result Is :" + m.matches());
+		boolean check = (m.matches());
+		if (check == true) {
+
+			System.out.println("Email Id Is Valid");
+		} else {
+			System.out.println("Email Is Invalid");
+		}
+	}
+
 	public static void main(String args[]) {
 
 		firstName();
 		lastName();
+		email();
 	}
 }
