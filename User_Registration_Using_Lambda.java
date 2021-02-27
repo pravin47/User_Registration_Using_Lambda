@@ -80,8 +80,9 @@ public class UserRegistrationSystem {
 		System.out.println("RULE 1: Minimum 8 Characters ");
 		System.out.println("RULE 2: Should Have At Least 1 Upper Case");
 		System.out.println("RULE 3: Should Have At Least 1 Numeric Number");
+		System.out.println("RULE 4: Should Have At Least 1 Special Character");
 		String password = sc.next();
-		String regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#&$])(?=\\S+$).{4,10}$";
+		String regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#&$])(?=\\S+$).{8,}$";
 		Pattern p = Pattern.compile(regex);
 		Matcher m = p.matcher(password);
 		System.out.println("String Result Is :" + m.matches());
