@@ -1,7 +1,8 @@
 package com.user.registration;
 
-import java.util.*;
-import java.util.regex.*;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UserRegistrationSystem {
 
@@ -17,7 +18,6 @@ public class UserRegistrationSystem {
 		System.out.println("String Result Is :" + m.matches());
 		boolean check = (m.matches());
 		if (check == true) {
-
 			System.out.println("First Name Is Valid");
 		} else {
 			System.out.println("First Name Is Invalid");
@@ -34,7 +34,6 @@ public class UserRegistrationSystem {
 		System.out.println("String Result Is:" + m.matches());
 		boolean check = (m.matches());
 		if (check == true) {
-
 			System.out.println("Last Name Is Valid");
 		} else {
 			System.out.println("Last Name Is Invalid");
@@ -51,7 +50,6 @@ public class UserRegistrationSystem {
 		System.out.println("String Result Is :" + m.matches());
 		boolean check = (m.matches());
 		if (check == true) {
-
 			System.out.println("Email Id Is Valid");
 		} else {
 			System.out.println("Email Is Invalid");
@@ -81,12 +79,14 @@ public class UserRegistrationSystem {
 		System.out.println("Please Enter The Valid Password using Rules");
 		System.out.println("RULE 1: Minimum 8 Characters ");
 		System.out.println("RULE 2: Should Have At Least 1 Upper Case");
+		System.out.println("RULE 3: Should Have At Least 1 Numeric Number");
 		String password = sc.next();
-		String regex = "[A-Z]+[a-z0-9]{8,}";
+		String regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#&$])(?=\\S+$).{4,10}$";
 		Pattern p = Pattern.compile(regex);
 		Matcher m = p.matcher(password);
 		System.out.println("String Result Is :" + m.matches());
-		boolean check = (m.matches());
+		boolean check = m.matches();
+
 		if (check == true) {
 			System.out.println("Password Is Valid");
 		} else {
